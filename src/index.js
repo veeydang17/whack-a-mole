@@ -40,8 +40,9 @@ function randomInteger(min, max) {
  *
  */
 function setDelay(difficulty) {
-  // TODO: Write your code here.
-
+  if (difficulty === "easy") return 1500;
+  if (difficulty === "normal") return 1000;
+  return randomInteger(600, 1200);
 }
 
 /**
@@ -59,8 +60,11 @@ function setDelay(difficulty) {
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
 function chooseHole(holes) {
-  // TODO: Write your code here.
-
+  const hole = holes[randomInteger(0, 9)];
+  if (hole === lastHole) {
+    chooseHole(holes);
+  }
+  lastHole = hole;
 }
 
 /**
